@@ -1,6 +1,8 @@
 Revision history for Google-Code-Upload
 
 {{$NEXT}}
+
+0.006     2012-06-14
   - New maintainer: Mike Doherty <doherty@cpan.org>
   - Enable OO-style usage
   - Permit setting a description for the upload
