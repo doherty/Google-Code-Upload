@@ -71,7 +71,7 @@ sub new {
     if ( $args{username} =~ /^(.*?)\@gmail\.com$/ ) {
         $args{username} = $1;
     }
-    my $agent_string = defined $class->VERSION ? $class->VERSION : 'dev';
+    my $agent_string = "$class/" . (defined $class->VERSION ? $class->VERSION : 'dev');
 
     my $self  = {
         ua          => $args{ua} || LWP::UserAgent->new( agent => $agent_string ),
