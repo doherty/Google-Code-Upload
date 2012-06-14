@@ -99,6 +99,9 @@ changelog entry for this release)
 
 =back
 
+Returns the URL where the file can be downloaded if successful - otherwise, dies
+with the HTTP status line.
+
 You can also export the C<upload> function, if you don't want to use OO style.
 Instead of key-value pairs, specify the arguments in the following order:
 
@@ -141,21 +144,18 @@ sub upload {
     my $request = POST $self->{upload_uri},
         Content_Type => 'form-data',
         Content      => [
-            summary     => $summary,
+            summary  => $summary,
             ( $description ? (description => $description) : ()),
             ( map { (label => $_) } @$labels),
-            filename    => [$file, basename($file), Content_Type => 'application/octet-stream'],
+            filename => [$file, basename($file), Content_Type => 'application/octet-stream'],
         ];
     $request->authorization_basic($self->{username}, $self->{password});
 
     my $response = $self->{ua}->request($request);
 
-    if ($response->code == 201) {
-        return ( $response->code, $response->status_line, $response->header('Location') );
-    }
-    else {
-        return ( $response->code, $response->status_line, undef );
-    }
+    return $response->header('Location')
+        if $response->code == 201;
+    croak $response->status_line;
 }
 
 1;

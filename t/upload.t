@@ -16,8 +16,8 @@ subtest old => sub {
     require Google::Code::Upload;
     Google::Code::Upload->import('upload');
 
-    my ($status, $reason, $url) = upload('README', $proj, $user, $pass, 'TEST', [ 'Test', 'Deprecated']);
-    is $status, 201 or diag $reason;
+    my $url = eval { upload('t/testfile.1', $proj, $user, $pass, 'TEST', [ 'Test', 'Deprecated']) };
+    ok !$@ or diag $@;
     diag $url;
 };
 
@@ -28,5 +28,12 @@ subtest new => sub {
     my $gc = new_ok('Google::Code::Upload' => [username => $user, password => $pass, project => $proj]);
     can_ok $gc, qw(upload);
 
-    $gc->upload( file => __FILE__, summary => 'summary', labels => ['Test', 'Deprecated'], description => 'desc' );
+    my $url = eval { $gc->upload(
+        file        => 't/testfile.2',
+        summary     => 'summary',
+        labels      => ['Test', 'Deprecated'],
+        description => 'desc'
+    )};
+    ok !$@ or diag $@;
+    diag $url;
 };

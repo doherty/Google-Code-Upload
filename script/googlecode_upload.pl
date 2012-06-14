@@ -108,12 +108,11 @@ else {
     }
 }
 
-my ( $status, $reason, $url ) =
-    upload( $file, $params{n}, $params{u}, $params{p}, $params{s}, \@labels );
+my $url = eval {
+    upload( $file, $params{n}, $params{u}, $params{p}, $params{s}, \@labels )
+};
 
-if ( $url ) {
-    print "The file was uploaded successfully.\nURL: $url\n";
+if ($@) {
+    print "An error occurred. Your file was not uploaded.\nGoogle Code upload server said: $@\n";
 }
-else {
-    print "An error occurred. Your file was not uploaded.\nGoogle Code upload server said: $reason ($status)\n";
-}
+print "The file was uploaded successfully.\nURL: $url\n";

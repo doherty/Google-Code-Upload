@@ -2,8 +2,9 @@ Revision history for Google-Code-Upload
 
 {{$NEXT}}
   - New maintainer: Mike Doherty <doherty@cpan.org>
-  - Enable OO-style usage [Mike Doherty]
-  - Permit setting a description for the upload [Mike Doherty]
+  - Enable OO-style usage
+  - Permit setting a description for the upload
+  - Throw an exception when upload fails
 
 0.05    2010-02-05
   - fix binmode issue (RT 54202)
