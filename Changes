@@ -1,18 +1,20 @@
 Revision history for Google-Code-Upload
 
+{{$NEXT}}
+  - Enable OO-style usage [Mike Doherty]
+
 0.05    2010.2.5
-        fix binmode issue (RT 54202)
+  - fix binmode issue (RT 54202)
 
 0.04    2009.2.7
-        bug fix in googlecode_upload.pl
+  - bug fix in googlecode_upload.pl
 
 0.03    2009.2.7
-        cleanup the code
-        add labels prompt in googlecode_upload.pl
+  - cleanup the code
+  - add labels prompt in googlecode_upload.pl
 
 0.02	2009.1.12
-        ReadMode('noecho'); for password in googlecode_upload.pl
+  - ReadMode('noecho'); for password in googlecode_upload.pl
 
 0.01    Date/time
-        First version, released on an unsuspecting world.
-
+  - First version, released on an unsuspecting world.
