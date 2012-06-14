@@ -2,22 +2,61 @@ NAME
     Google::Code::Upload - upload files to a Google Code project
 
 VERSION
-    version 0.001
+    version 0.006
 
 SYNOPSIS
-        use Google::Code::Upload qw/upload/;
-
-        upload( $file, $project_name, $username, $password, $summary, $labels );
+        use Google::Code::Upload;
+        my $gc = Google::Code::Upload->new(
+            project  => 'myproject',
+            username => 'mike',
+            password => 'abc123',
+        );
+        $gc->upload(
+            file        => 'README',
+            summary     => 'README for myproject',
+            labels      => ['Featured'],
+            description => 'Hello world',
+        );
 
 DESCRIPTION
     It's an incomplete Perl port of
-    <http://support.googlecode.com/svn/trunk/scripts/googlecode_upload.py>
+    <https://support.googlecode.com/svn/trunk/scripts/googlecode_upload.py>
 
-    basically you need googlecode_upload script instead.
+    Basically you need googlecode_upload script instead.
 
 METHODS
+  new
+    Constructs a new "Google::Code::Upload" object. Takes the following
+    key-value pairs:
+
+    username
+    password (your Google Code password from
+    <https://code.google.com/hosting/settings>)
+    project
+    ua - something that works like a LWP::UserAgent (*optional*)
+
   upload
-        upload( $file, $project_name, $username, $password, $summary, $labels );
+    Upload the given file to Google Code. Requires the following key-value
+    pairs:
+
+    file - the filename of the file to upload
+    summary - the one-line summary to give to the file (defaults to the
+    filename)
+    description - text describing the upload in more detail (for example,
+    the changelog entry for this release)
+    labels - an arrayref of labels like "Featured", "Type-Archive" or
+    "OpSys-All"
+
+    You can also export the "upload" function, if you don't want to use OO
+    style. Instead of key-value pairs, specify the arguments in the
+    following order:
+
+        use Google::Code::Upload qw(upload);
+        upload( $file, $project_name, $username, $password, $summary, $labels, $description );
+
+EXPORTS
+    You may optionally export "upload" to use this module in a non-OO
+    manner.
 
 AVAILABILITY
     The project homepage is

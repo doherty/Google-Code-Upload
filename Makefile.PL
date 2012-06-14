@@ -15,7 +15,7 @@ my %WriteMakefileArgs = (
     "File::Find" => 0,
     "File::Temp" => 0,
     "Module::Build" => "0.3601",
-    "Test::More" => 0
+    "Test::More" => "0.96"
   },
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30",
@@ -26,15 +26,17 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Dist::Zilla::PluginBundle::Author::DOHERTY",
   "PREREQ_PM" => {
+    "Carp" => 0,
     "Exporter" => 0,
     "File::Basename" => 0,
     "HTTP::Request::Common" => 0,
     "LWP::Protocol::https" => 0,
     "LWP::UserAgent" => 0,
+    "Scalar::Util" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.001",
+  "VERSION" => "0.006",
   "test" => {
     "TESTS" => "t/*.t"
   }
