@@ -23,9 +23,18 @@ our @EXPORT_OK = qw/ upload /;
 
 =head1 SYNOPSIS
 
-    use Google::Code::Upload qw/upload/;
-
-    upload( $file, $project_name, $username, $password, $summary, $labels );
+    use Google::Code::Upload;
+    my $gc = Google::Code::Upload->new(
+        project  => 'myproject',
+        username => 'mike',
+        password => 'abc123',
+    );
+    $gc->upload(
+        file        => 'README',
+        summary     => 'README for myproject',
+        labels      => ['Featured'],
+        description => 'Hello world',
+    );
 
 =head1 DESCRIPTION
 
