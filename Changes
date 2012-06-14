@@ -2,6 +2,7 @@ Revision history for Google-Code-Upload
 
 {{$NEXT}}
   - Enable OO-style usage [Mike Doherty]
+  - Permit setting a description for the upload [Mike Doherty]
 
 0.05    2010.2.5
   - fix binmode issue (RT 54202)

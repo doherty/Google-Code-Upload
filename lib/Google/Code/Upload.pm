@@ -83,6 +83,9 @@ Upload the given file to Google Code. Requires the following key-value pairs:
 
 =item summary - the one-line summary to give to the file (defaults to the filename)
 
+=item description - text describing the upload in more detail (for example, the
+changelog entry for this release)
+
 =item labels - an arrayref of labels like C<Featured>, C<Type-Archive> or C<OpSys-All>
 
 =back
@@ -91,7 +94,7 @@ You can also export the C<upload> function, if you don't want to use OO style.
 Instead of key-value pairs, specify the arguments in the following order:
 
     use Google::Code::Upload qw(upload);
-    upload( $file, $project_name, $username, $password, $summary, $labels );
+    upload( $file, $project_name, $username, $password, $summary, $labels, $description );
 
 =cut
 
@@ -100,13 +103,15 @@ sub upload {
     my $summary;
     my $labels;
     my $file;
+    my $description;
 
     if (blessed $_[0]) {
         $self = shift;
         my %args = @_;
-        $summary = $args{summary};
-        $labels  = $args{labels} || [];
         $file    = $args{file};
+        $summary = $args{summary} || basename($file);
+        $labels  = $args{labels} || [];
+        $description = $args{description};
     }
     else {
         $file           = shift;
@@ -115,6 +120,7 @@ sub upload {
         my $password    = shift;
         $summary        = shift;
         $labels         = shift || [];
+        $description    = shift;
 
         $self = __PACKAGE__->new(
             project     => $project,
@@ -127,6 +133,7 @@ sub upload {
         Content_Type => 'form-data',
         Content      => [
             summary     => $summary,
+            ( $description ? (description => $description) : ()),
             ( map { (label => $_) } @$labels),
             filename    => [$file, basename($file), Content_Type => 'application/octet-stream'],
         ];
