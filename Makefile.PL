@@ -1,34 +1,63 @@
-use inc::Module::Install;
 
-name     'Google-Code-Upload';
-all_from 'lib/Google/Code/Upload.pm';
-author   'Fayland Lam <fayland@gmail.com>';
-license  'perl';
+use strict;
+use warnings;
 
-requires 'File::Spec';
-requires 'File::Basename';
-requires 'List::MoreUtils';
-requires 'MIME::Base64';
-requires 'LWP::UserAgent';
-requires 'HTTP::Headers';
-requires 'HTTP::Request';
-requires 'Getopt::Long';
-requires 'Pod::Usage';
-requires 'Term::ReadKey';
+use 5.006;
 
-#if ( $^O eq 'MSWin32' ) {
-#	requires 'Win32';
-#} else {
-#	requires 'File::HomeDir';
-#}
+use ExtUtils::MakeMaker 6.30;
 
-build_requires 'Test::More';
 
-repository 'http://github.com/fayland/google-code-upload';
 
-install_script glob('script/*.pl');
+my %WriteMakefileArgs = (
+  "ABSTRACT" => "upload files to a Google Code project",
+  "AUTHOR" => "Fayland Lam <fayland\@gmail.com>, Mike Doherty <doherty\@cpan.org>",
+  "BUILD_REQUIRES" => {
+    "File::Find" => 0,
+    "File::Temp" => 0,
+    "Module::Build" => "0.3601",
+    "Test::More" => 0
+  },
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30",
+    "Module::Build" => "0.3601"
+  },
+  "DISTNAME" => "Dist-Zilla-PluginBundle-Author-DOHERTY",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "Dist::Zilla::PluginBundle::Author::DOHERTY",
+  "PREREQ_PM" => {
+    "Exporter" => 0,
+    "File::Basename" => 0,
+    "HTTP::Request::Common" => 0,
+    "LWP::Protocol::https" => 0,
+    "LWP::UserAgent" => 0,
+    "strict" => 0,
+    "warnings" => 0
+  },
+  "VERSION" => "0.001",
+  "test" => {
+    "TESTS" => "t/*.t"
+  }
+);
 
-auto_install;
 
-WriteAll;
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
+
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
 
