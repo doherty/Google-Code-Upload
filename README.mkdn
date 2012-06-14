@@ -49,6 +49,9 @@ Upload the given file to Google Code. Requires the following key-value pairs:
 changelog entry for this release)
 - labels - an arrayref of labels like `Featured`, `Type-Archive` or `OpSys-All`
 
+Returns the URL where the file can be downloaded if successful - otherwise, dies
+with the HTTP status line.
+
 You can also export the `upload` function, if you don't want to use OO style.
 Instead of key-value pairs, specify the arguments in the following order:
 
@@ -61,21 +64,14 @@ You may optionally export `upload` to use this module in a non-OO manner.
 
 # AVAILABILITY
 
-The project homepage is [http://metacpan.org/release/Dist-Zilla-PluginBundle-Author-DOHERTY/](http://metacpan.org/release/Dist-Zilla-PluginBundle-Author-DOHERTY/).
-
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit [http://www.perl.com/CPAN/](http://www.perl.com/CPAN/) to find a CPAN
-site near you, or see [https://metacpan.org/module/Dist::Zilla::PluginBundle::Author::DOHERTY/](https://metacpan.org/module/Dist::Zilla::PluginBundle::Author::DOHERTY/).
-
-# SOURCE
-
-The development version is on github at [http://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY](http://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY)
-and may be cloned from [git://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY.git](git://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY.git)
+site near you, or see [https://metacpan.org/module/Google::Code::Upload/](https://metacpan.org/module/Google::Code::Upload/).
 
 # BUGS AND LIMITATIONS
 
 You can make new bug reports, and view existing ones, through the
-web interface at [https://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY/issues](https://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY/issues).
+web interface at [http://rt.cpan.org](http://rt.cpan.org).
 
 # AUTHORS
 

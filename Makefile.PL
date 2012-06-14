@@ -21,10 +21,10 @@ my %WriteMakefileArgs = (
     "ExtUtils::MakeMaker" => "6.30",
     "Module::Build" => "0.3601"
   },
-  "DISTNAME" => "Dist-Zilla-PluginBundle-Author-DOHERTY",
+  "DISTNAME" => "Google-Code-Upload",
   "EXE_FILES" => [],
   "LICENSE" => "perl",
-  "NAME" => "Dist::Zilla::PluginBundle::Author::DOHERTY",
+  "NAME" => "Google::Code::Upload",
   "PREREQ_PM" => {
     "Carp" => 0,
     "Exporter" => 0,

@@ -21,10 +21,10 @@ my %module_build_args = (
     "Fayland Lam <fayland\@gmail.com>",
     "Mike Doherty <doherty\@cpan.org>"
   ],
-  "dist_name" => "Dist-Zilla-PluginBundle-Author-DOHERTY",
+  "dist_name" => "Google-Code-Upload",
   "dist_version" => "0.006",
   "license" => "perl",
-  "module_name" => "Dist::Zilla::PluginBundle::Author::DOHERTY",
+  "module_name" => "Google::Code::Upload",
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
