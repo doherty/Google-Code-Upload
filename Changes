@@ -2,6 +2,9 @@ Revision history for Google-Code-Upload
 
 {{$NEXT}}
 
+0.06      2012-06-14
+  - Re-released with the right version number
+
 0.006     2012-06-14
   - New maintainer: Mike Doherty <doherty@cpan.org>
   - Enable OO-style usage

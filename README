@@ -2,7 +2,7 @@ NAME
     Google::Code::Upload - upload files to a Google Code project
 
 VERSION
-    version 0.006
+    version 0.06
 
 SYNOPSIS
         use Google::Code::Upload;
