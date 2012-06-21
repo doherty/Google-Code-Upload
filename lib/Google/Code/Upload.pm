@@ -38,9 +38,9 @@ our @EXPORT_OK = qw/ upload /;
 
 =head1 DESCRIPTION
 
-It's an incomplete Perl port of L<https://support.googlecode.com/svn/trunk/scripts/googlecode_upload.py>
+This module allows you to programmatically upload files to L<Google Code|https://googlecode.com>.
 
-Basically you need L<googlecode_upload> script instead.
+It ships with an executable script for use on the command line: L<googlecode_upload.pl>.
 
 =head1 METHODS
 

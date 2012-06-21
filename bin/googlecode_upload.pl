@@ -3,6 +3,7 @@ use strict;
 use warnings;
 # ABSTRACT: script to upload files to a Google Code project
 # VERSION
+# PODNAME: googlecode_upload.pl
 
 use Getopt::Long;
 use Pod::Usage;
