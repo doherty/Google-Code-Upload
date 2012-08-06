@@ -4,7 +4,7 @@ Google::Code::Upload - upload files to a Google Code project
 
 # VERSION
 
-version 0.06
+version 0.07
 
 # SYNOPSIS
 
@@ -23,9 +23,9 @@ version 0.06
 
 # DESCRIPTION
 
-It's an incomplete Perl port of [https://support.googlecode.com/svn/trunk/scripts/googlecode\_upload.py](https://support.googlecode.com/svn/trunk/scripts/googlecode\_upload.py)
+This module allows you to programmatically upload files to [Google Code](https://googlecode.com).
 
-Basically you need [googlecode\_upload](http://search.cpan.org/perldoc?googlecode\_upload) script instead.
+It ships with an executable script for use on the command line: [googlecode\_upload.pl](http://search.cpan.org/perldoc?googlecode\_upload.pl).
 
 # METHODS
 

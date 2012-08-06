@@ -18,25 +18,29 @@ my %WriteMakefileArgs = (
     "Test::More" => "0.96"
   },
   "CONFIGURE_REQUIRES" => {
-    "ExtUtils::MakeMaker" => "6.30",
     "Module::Build" => "0.3601"
   },
   "DISTNAME" => "Google-Code-Upload",
-  "EXE_FILES" => [],
+  "EXE_FILES" => [
+    "bin/googlecode_upload.pl"
+  ],
   "LICENSE" => "perl",
   "NAME" => "Google::Code::Upload",
   "PREREQ_PM" => {
     "Carp" => 0,
     "Exporter" => 0,
     "File::Basename" => 0,
+    "Getopt::Long" => 0,
     "HTTP::Request::Common" => 0,
     "LWP::Protocol::https" => 0,
     "LWP::UserAgent" => 0,
+    "Pod::Usage" => 0,
     "Scalar::Util" => 0,
+    "Term::ReadKey" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.06",
+  "VERSION" => "0.07",
   "test" => {
     "TESTS" => "t/*.t"
   }
