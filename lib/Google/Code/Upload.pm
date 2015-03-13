@@ -1,7 +1,7 @@
 package Google::Code::Upload;
 use strict;
 use warnings;
-# ABSTRACT: upload files to a Google Code project
+# ABSTRACT: upload files to a Google Code project (deprecated)
 # VERSION
 
 use File::Basename qw/basename/;
@@ -37,6 +37,8 @@ our @EXPORT_OK = qw/ upload /;
     );
 
 =head1 DESCRIPTION
+
+B<DEPRECATED>: Google code L<shut down|http://google-opensource.blogspot.com/2015/03/farewell-to-google-code.html>
 
 This module allows you to programmatically upload files to L<Google Code|https://googlecode.com>.
 
